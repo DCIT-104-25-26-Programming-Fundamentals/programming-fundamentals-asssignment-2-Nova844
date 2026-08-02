@@ -68,8 +68,113 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+
+
 #include <iostream>
 #include <iomanip>
 #include <cmath>
 using namespace std;
+
+double doAdd(double a, double b) {
+	return a + b;
+}
+
+double doSubtract(double a, double b) {
+	return a - b;
+}
+
+double doMultiply(double a, double b) {
+	return a * b;
+}
+
+double doDivide(double a, double b) {
+	if (b == 0) {
+		cout << "Error: Cannot divide by zero." << endl;
+		return 0;
+	}
+	return a / b;
+}
+
+int doModulus(int a, int b) {
+	if (b == 0) {
+		cout << "Error: Cannot divide by zero." << endl;
+		return 0;
+	}
+	return a % b;
+}
+
+double doExponentiation(double a, double b) {
+	return pow(a, b);
+}
+
+void showMenu() {
+	cout << "\n============================" << endl;
+	cout << "      SIMPLE CALCULATOR" << endl;
+	cout << "============================" << endl;
+	cout << "1. Addition" << endl;
+	cout << "2. Subtraction" << endl;
+	cout << "3. Multiplication" << endl;
+	cout << "4. Division" << endl;
+	cout << "5. Modulus" << endl;
+	cout << "6. Exponentiation" << endl;
+	cout << "7. Quit" << endl;
+	cout << "Select an operation (1-7): ";
+}
+
+int main() {
+	int choice;
+
+	do {
+		showMenu();
+		cin >> choice;
+
+		if (choice == 7) {
+			cout << "Goodbye!" << endl;
+			break;
+		}
+
+		if (choice < 1 || choice > 7) {
+			cout << "Invalid choice. Please try again." << endl;
+			continue;
+		}
+
+		double a, b;
+		cout << "Enter first number : ";
+		cin >> a;
+		cout << "Enter second number: ";
+		cin >> b;
+
+		cout << fixed << setprecision(2);
+
+		if (choice == 1) {
+			cout << "Result: " << a << " + " << b << " = " << doAdd(a, b) << endl;
+		}
+		else if (choice == 2) {
+			cout << "Result: " << a << " - " << b << " = " << doSubtract(a, b) << endl;
+		}
+		else if (choice == 3) {
+			cout << "Result: " << a << " * " << b << " = " << doMultiply(a, b) << endl;
+		}
+		else if (choice == 4) {
+			if (b != 0)
+				cout << "Result: " << a << " / " << b << " = " << doDivide(a, b) << endl;
+			else
+				doDivide(a, b);
+		}
+		else if (choice == 5) {
+			if (b != 0)
+				cout << "Result: " << (int)a << " % " << (int)b << " = " << doModulus((int)a, (int)b) << endl;
+			else
+				doModulus((int)a, (int)b);
+		}
+		else if (choice == 6) {
+			cout << "Result: " << a << " ^ " << b << " = " << doExponentiation(a, b) << endl;
+		}
+
+	} while (choice != 7);
+
+	return 0;
+}
+
+
 
