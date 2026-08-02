@@ -42,3 +42,61 @@
 #include <iostream>
 using namespace std;
 
+double computeSum(double arr[], int n) {
+	double total = 0;
+	for (int i = 0; i < n; i++) {
+		total = total + arr[i];
+	}
+	return total;
+}
+
+double computeAverage(double arr[], int n) {
+	return computeSum(arr, n) / n;
+}
+
+double computeMax(double arr[], int n) {
+	double max = arr[0];
+	for (int i = 1; i < n; i++) {
+		if (arr[i] > max) {
+			max = arr[i];
+		}
+	}
+	return max;
+}
+
+double computeMin(double arr[], int n) {
+	double min = arr[0];
+	for (int i = 1; i < n; i++) {
+		if (arr[i] < min) {
+			min = arr[i];
+		}
+	}
+	return min;
+}
+
+int main() {
+	int n;
+	cout << "How many numbers? ";
+	cin >> n;
+
+	if (n <= 0) {
+		cout << "Error: Please enter a positive number." << endl;
+		return 0;
+	}
+
+	double arr[1000];
+	for (int i = 0; i < n; i++) {
+		cout << "Enter number " << i + 1 << ": ";
+		cin >> arr[i];
+	}
+
+	cout << endl;
+	cout << "Results:" << endl;
+	cout << "Sum:     " << computeSum(arr, n) << endl;
+	cout << "Average: " << computeAverage(arr, n) << endl;
+	cout << "Maximum: " << computeMax(arr, n) << endl;
+	cout << "Minimum: " << computeMin(arr, n) << endl;
+
+	return 0;
+}
+
