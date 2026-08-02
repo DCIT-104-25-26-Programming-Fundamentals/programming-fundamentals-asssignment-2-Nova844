@@ -48,6 +48,61 @@
 // YOUR CODE BELOW — remove the // symbols from the scaffold and fill it in
 // =============================================================================
 
+
+
 #include <iostream>
 using namespace std;
+
+// part a - print first n fibonacci numbers
+void printFibonacci(int n) {
+	if (n <= 0) {
+		cout << "Error: N must be a positive integer." << endl;
+		return;
+	}
+
+	int a = 0, b = 1;
+	cout << "Fibonacci sequence: ";
+	for (int i = 0; i < n; i++) {
+		cout << a << " ";
+		int temp = a + b;
+		a = b;
+		b = temp;
+	}
+	cout << endl;
+}
+
+// part b - check if a number is in the fibonacci sequence
+void checkFibonacci(int num) {
+	int a = 0, b = 1;
+
+	while (a < num) {
+		int temp = a + b;
+		a = b;
+		b = temp;
+	}
+
+	if (a == num) {
+		cout << num << " is a Fibonacci number." << endl;
+	}
+	else {
+		cout << num << " is NOT a Fibonacci number." << endl;
+	}
+}
+
+int main() {
+	int n;
+	cout << "How many terms? ";
+	cin >> n;
+	printFibonacci(n);
+
+	int num;
+	cout << "\nEnter a number to check: ";
+	cin >> num;
+	checkFibonacci(num);
+
+	return 0;
+}
+
+
+
 
